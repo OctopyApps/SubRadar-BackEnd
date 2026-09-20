@@ -9,7 +9,7 @@
 # упадёт с понятной ошибкой (шаг "проверка регистрации тестовых директорий").
 set -euo pipefail
 
-cd "$(dirname "$0")/.." # -> backend/
+cd "$(dirname "$0")/.." # -> repo root
 
 TEST_PATHS=(
   "./internal/config/..."
@@ -42,7 +42,7 @@ while IFS= read -r dir; do
     fi
   done
   if [ "$found" -eq 0 ]; then
-    echo "Директория с тестами '$dir' не зарегистрирована в TEST_PATHS (backend/tests/RUN_ALL.sh)"
+    echo "Директория с тестами '$dir' не зарегистрирована в TEST_PATHS (tests/RUN_ALL.sh)"
     FAILED=1
   fi
 done < <(find . -name '*_test.go' -exec dirname {} \; | sort -u)

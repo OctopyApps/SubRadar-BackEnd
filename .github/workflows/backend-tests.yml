@@ -1,12 +1,9 @@
-name: Backend Tests
+name: Tests
 
 on:
   pull_request:
     branches:
       - main
-      - dev
-    paths:
-      - "backend/**"
 
 jobs:
   test:
@@ -20,8 +17,8 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version-file: backend/go.mod
-          cache-dependency-path: backend/go.sum
+          go-version-file: go.mod
+          cache-dependency-path: go.sum
 
-      - name: Run all backend tests (gofmt, vet, go test)
-        run: backend/tests/RUN_ALL.sh
+      - name: Run all tests (gofmt, vet, go test)
+        run: tests/RUN_ALL.sh

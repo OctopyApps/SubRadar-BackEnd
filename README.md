@@ -42,8 +42,8 @@ SubRadar Backend — REST API сервер написанный на Go. Хра�
 ### Из исходников
 
 ```bash
-git clone https://github.com/OctopyApps/SubRadar.git
-cd SubRadar/backend
+git clone https://github.com/OctopyApps/SubRadar-BackEnd.git
+cd SubRadar-BackEnd
 
 go mod download
 go build -o subradar ./cmd/server
@@ -554,7 +554,7 @@ curl -X POST http://localhost:8080/auth/login \
 ## 7. Архитектура кода
 
 ```
-backend/
+SubRadar-BackEnd/
 ├── cmd/server/main.go          — точка входа: флаги, конфиг, БД, роутер, запуск
 ├── internal/
 │   ├── config/config.go        — загрузка конфига из yaml + env (Viper)
@@ -590,7 +590,7 @@ HTTP запрос
 
 ## 8. Тестирование
 
-Запуск всех тестов (юнит + интеграционные), из `backend/`:
+Запуск всех тестов (юнит + интеграционные), из корня репозитория:
 
 ```bash
 tests/RUN_ALL.sh
@@ -598,7 +598,7 @@ tests/RUN_ALL.sh
 
 Прогоняет `gofmt`, `go vet` и `go test` по всем зарегистрированным
 директориям с тестами. Тот же скрипт гоняется в CI на каждый PR в `main`
-и `dev`, затрагивающий `backend/**` (`.github/workflows/backend-tests.yml`).
+(`.github/workflows/backend-tests.yml`).
 
 **При добавлении нового кода — тесты обязательны:**
 
